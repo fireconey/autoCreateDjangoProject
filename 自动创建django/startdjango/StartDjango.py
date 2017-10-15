@@ -38,8 +38,14 @@ class StartDjango(threading.Thread,object):
 			self.url=url
 			self.start()
 			time.sleep(1)
-			i=input("stop[y or n]?:")
-			os.system("taskkill /F /IM  python.exe")
+			while(1):
+
+				i=input("stop[y or n]?:")
+				if i=="y":
+					os.system("taskkill /F /IM  python.exe")
+				elif(i=="n"):
+					print("你取消了:停止运行")
+				time.sleep(1)
 
     #结束线程，要延时，否则线程没有创建就不能
     #结束线程。
